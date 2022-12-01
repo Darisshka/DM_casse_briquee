@@ -6,7 +6,7 @@ pyxel.init(128, 128, title="Nuit du c0de")
 
 # position initiale du vaisseau
 # (origine des positions : coin haut gauche)
-vaisseau_x = 50
+vaisseau_x = 45
 vaisseau_y = 100
 
 def vaisseau_deplacement(x, y):
