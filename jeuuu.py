@@ -1,11 +1,11 @@
 import pyxel
 
 # taille de la fenetre 128x128 pixels
-# ne pas modifier
+
 pyxel.init(128, 128, title="Nuit du c0de")
 
-# position initiale du vaisseau
-# (origine des positions : coin haut gauche)
+# position initiale du vaisseau et de la balle
+
 vaisseau_x = 45
 vaisseau_y = 110
 balle_x = 63
@@ -61,7 +61,7 @@ def draw():
     pyxel.cls(0)
     
 
-    # vaisseau (carre 8x8)
+    # vaisseau et balle
     pyxel.rect(vaisseau_x, vaisseau_y, 25, 8, 6)
     pyxel.tri(vaisseau_x +25, vaisseau_y, vaisseau_x +25, vaisseau_y + 7, vaisseau_x +25 + 7, vaisseau_y + 7,6)
     pyxel.tri(vaisseau_x , vaisseau_y, vaisseau_x , vaisseau_y + 7, vaisseau_x -7, vaisseau_y + 7,6)
