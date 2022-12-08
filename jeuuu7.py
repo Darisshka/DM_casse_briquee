@@ -157,7 +157,7 @@ def draw():
     pyxel.rect(65, 30, 15, 6, 7) 
     pyxel.rect(85, 30, 15, 6, 7)
     pyxel.rect(105, 30, 15, 6, 7)
-    #briques2
+    #briques3
     pyxel.rect(5, 40, 15, 6, 10) 
     pyxel.rect(25, 40, 15, 6, 10)   
     pyxel.rect(45, 40, 15, 6, 10) 
