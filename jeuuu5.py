@@ -69,29 +69,29 @@ def update():
         deplacement_vertical = 1
     elif (balle_x >= 6 | balle_x <= 21) & (balle_y == 46):
         deplacement_vertical = -1
-    elif (balle_x >= 15 | balle_x <= 30) & (balle_y == 40):
+    elif (balle_x >= 16 | balle_x <= 31) & (balle_y == 40):
         deplacement_vertical = 1
-    elif (balle_x >= 15 | balle_x <= 30) & (balle_y == 46):
+    elif (balle_x >= 16 | balle_x <= 31) & (balle_y == 46):
         deplacement_vertical = -1
-    elif (balle_x >= 25 | balle_x <= 40) & (balle_y == 40):
+    elif (balle_x >= 26 | balle_x <= 41) & (balle_y == 40):
         deplacement_vertical = 1
-    elif (balle_x >= 25 | balle_x <= 40) & (balle_y == 46):
+    elif (balle_x >= 26 | balle_x <= 41) & (balle_y == 46):
         deplacement_vertical = -1
-    elif (balle_x >= 45 | balle_x <= 60) & (balle_y == 40):
+    elif (balle_x >= 46 | balle_x <= 61) & (balle_y == 40):
         deplacement_vertical = 1
-    elif (balle_x >= 45 | balle_x <= 60) & (balle_y == 46):
+    elif (balle_x >= 46 | balle_x <= 61) & (balle_y == 46):
         deplacement_vertical = -1
-    elif (balle_x >= 65 | balle_x <= 80) & (balle_y == 40):
+    elif (balle_x >= 66 | balle_x <= 81) & (balle_y == 40):
         deplacement_vertical = 1
-    elif (balle_x >= 65 | balle_x <= 80) & (balle_y == 46):
+    elif (balle_x >= 66 | balle_x <= 81) & (balle_y == 46):
         deplacement_vertical = -1
-    elif (balle_x >= 85 | balle_x <= 100) & (balle_y == 40):
+    elif (balle_x >= 86 | balle_x <= 101) & (balle_y == 40):
         deplacement_vertical = 1
-    elif (balle_x >= 85 | balle_x <= 100) & (balle_y == 46):
+    elif (balle_x >= 86 | balle_x <= 101) & (balle_y == 46):
         deplacement_vertical = -1
-    elif (balle_x >= 105 | balle_x <= 120) & (balle_y == 40):
+    elif (balle_x >= 106 | balle_x <= 121) & (balle_y == 40):
         deplacement_vertical = 1
-    elif (balle_x >= 105 | balle_x <= 120) & (balle_y == 46):
+    elif (balle_x >= 106 | balle_x <= 121) & (balle_y == 46):
         deplacement_vertical = -1
         
        
