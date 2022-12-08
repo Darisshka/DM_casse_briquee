@@ -65,10 +65,8 @@ def update():
     balle_y = balle_y + deplacement_vertical
     balle_x = balle_x + deplacement_horizontal
     
-    if (balle_x >= 5 | balle_x <= 20) & (balle_y == 40):
+    if (balle_x >= 5 | balle_x <= 20) & (balle_y >= 40 | <=46):
         deplacement_vertical = 1
-    if (balle_x >= 5 | balle_x <= 20) & (balle_y == 46):
-        deplacement_vertical = -1
     elif (balle_x >= 15 | balle_x <= 30) & (balle_y == 40):
         deplacement_vertical = 1
     elif (balle_x >= 15 | balle_x <= 30) & (balle_y == 46):
