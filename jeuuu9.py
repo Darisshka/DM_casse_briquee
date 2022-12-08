@@ -94,7 +94,7 @@ def update():
     elif (balle_x >= 105| balle_x <= 120 & (balle_y == 46):
         deplacement_vertical = -1
           
-        if (balle_x >= 5 | balle_x <= 20) & (balle_y == 30):
+    if (balle_x >= 5 | balle_x <= 20) & (balle_y == 30):
         deplacement_vertical = 1
     elif (balle_x >= 5 | balle_x <= 20) & (balle_y == 36):
         deplacement_vertical = -1
