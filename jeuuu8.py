@@ -93,6 +93,35 @@ def update():
         deplacement_vertical = 1
     elif (balle_x >= 105| balle_x <= 120 & (balle_y == 46):
         deplacement_vertical = -1
+          
+        if (balle_x >= 5 | balle_x <= 20) & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 5 | balle_x <= 20) & (balle_y == 36):
+        deplacement_vertical = -1
+    elif (balle_x >= 15 | balle_x <= 30) & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 15|balle_x <= 30 & (balle_y == 36):
+        deplacement_vertical = -1
+    elif (balle_x >= 25| balle_x <= 40 & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 25| balle_x <= 40 & (balle_y == 36):
+        deplacement_vertical = -1
+    elif (balle_x >= 45| balle_x <= 60 & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 45| balle_x <= 60 & (balle_y == 36):
+        deplacement_vertical = -1
+    elif (balle_x >= 65| balle_x <= 80 & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 65| balle_x <= 80 & (balle_y == 36):
+        deplacement_vertical = -1
+    elif (balle_x >= 85| balle_x <= 100 & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 85| balle_x <= 100 & (balle_y == 36):
+        deplacement_vertical = -1
+    elif (balle_x >= 105| balle_x <= 120 & (balle_y == 30):
+        deplacement_vertical = 1
+    elif (balle_x >= 105| balle_x <= 120 & (balle_y == 36):
+        deplacement_vertical = -1
         
        
     if balle_x == 128 : 
