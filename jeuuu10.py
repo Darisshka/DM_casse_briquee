@@ -22,6 +22,8 @@ balle_velocity_y = -1
 number = 0
 row = 0
 brick_deleted_3 = []
+brick_deleted_2 = []
+brick_deleted_1 = []
 
 #vies et score
 score = 0
@@ -89,6 +91,44 @@ def update():
             deplacement_vertical = -deplacement_vertical
         brick_deleted_3.append(number)
         
+    if (balle_y == 34 or balle_y == 30):
+        row = 2
+        if ((len(brick_deleted_2)==0 or (1 not in brick_deleted_2)) and balle_x >= 5 and balle_x <= 25):
+            number = 1
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_2)==0 or (2 not in brick_deleted_2)) and balle_x >= 30 and balle_x <= 50):
+            number = 2
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_2)==0 or (3 not in brick_deleted_2)) and balle_x >= 55 and balle_x <= 75):
+            number = 3
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_2)==0 or (4 not in brick_deleted_2)) and balle_x >= 80 and balle_x <= 100):
+            number = 4
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_2)==0 or (5 not in brick_deleted_2)) and balle_x >= 105 and balle_x <= 125):
+            number = 5
+            deplacement_vertical = -deplacement_vertical
+        brick_deleted_2.append(number)
+        
+    if (balle_y == 24 or balle_y == 20):
+        row = 1
+        if ((len(brick_deleted_1)==0 or (1 not in brick_deleted_1)) and balle_x >= 5 and balle_x <= 25):
+            number = 1
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_1)==0 or (2 not in brick_deleted_1)) and balle_x >= 30 and balle_x <= 50):
+            number = 2
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_1)==0 or (3 not in brick_deleted_1)) and balle_x >= 55 and balle_x <= 75):
+            number = 3
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_1)==0 or (4 not in brick_deleted_1)) and balle_x >= 80 and balle_x <= 100):
+            number = 4
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_1)==0 or (5 not in brick_deleted_1)) and balle_x >= 105 and balle_x <= 125):
+            number = 5
+            deplacement_vertical = -deplacement_vertical
+        brick_deleted_1.append(number)
+        
     if balle_x == 128 : 
         deplacement_horizontal = -1
         
@@ -138,17 +178,27 @@ def draw():
     pyxel.circ(balle_x, balle_y, 3, 2)
     
     #briques 1
-    pyxel.rect(5, 20, 20, 4, 2) 
-    pyxel.rect(30, 20, 20, 4, 2)   
-    pyxel.rect(55, 20, 20, 4, 2)  
-    pyxel.rect(80, 20, 20, 4, 2)
-    pyxel.rect(105, 20, 20, 4, 2)
+    if len(brick_deleted_1)==0 or (1 not in brick_deleted_1):
+        pyxel.rect(5, 20, 20, 4, 2)
+    if len(brick_deleted_1)==0 or (2 not in brick_deleted_1):
+        pyxel.rect(30, 20, 20, 4, 2)
+    if len(brick_deleted_1)==0 or (3 not in brick_deleted_1):
+        pyxel.rect(55, 20, 20, 4, 2)
+    if len(brick_deleted_1)==0 or (4 not in brick_deleted_1):
+        pyxel.rect(80, 20, 20, 4, 2)
+    if len(brick_deleted_1)==0 or (5 not in brick_deleted_1):  
+        pyxel.rect(105, 20, 20, 4, 2)
     #briques 2
-    pyxel.rect(5, 30, 20, 4, 7) 
-    pyxel.rect(30, 30, 20, 4, 7)   
-    pyxel.rect(55, 30, 20, 4, 7) 
-    pyxel.rect(80, 30, 20, 4, 7) 
-    pyxel.rect(105, 30, 20, 4, 7)
+    if len(brick_deleted_2)==0 or (1 not in brick_deleted_2):
+        pyxel.rect(5, 30, 20, 4, 7)
+    if len(brick_deleted_2)==0 or (2 not in brick_deleted_2):
+        pyxel.rect(30, 30, 20, 4, 7)
+    if len(brick_deleted_2)==0 or (3 not in brick_deleted_2):
+        pyxel.rect(55, 30, 20, 4, 7)
+    if len(brick_deleted_2)==0 or (4 not in brick_deleted_2):
+        pyxel.rect(80, 30, 20, 4, 7)
+    if len(brick_deleted_2)==0 or (5 not in brick_deleted_2):
+        pyxel.rect(105, 30, 20, 4, 7)
     #briques 3
     print(number)
     if len(brick_deleted_3)==0 or (1 not in brick_deleted_3):
@@ -166,10 +216,6 @@ def draw():
 if vies == 0:
         pyxel.cls(0)
         pyxel.text(55, 64, "Game Over", 7)
-    
-
-       
-      
       
 
 pyxel.run(update, draw)
