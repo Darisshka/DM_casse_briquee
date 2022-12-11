@@ -21,6 +21,7 @@ balle_velocity_y = -1
 #briques
 number = 0
 row = 0
+brick_deleted_3 = []
 
 #vies et score
 score = 0
@@ -59,7 +60,7 @@ def balle_deplacement(x, y):
 def update():
     """mise à jour des variables (30 fois par seconde)"""
 
-    global vaisseau_x, vaisseau_y, balle_x, balle_y, deplacement_vertical, deplacement_horizontal, number, row
+    global vaisseau_x, vaisseau_y, balle_x, balle_y, deplacement_vertical, deplacement_horizontal, number, row, brick_deleted_3
 
     # mise à jour de la position du vaisseau
     vaisseau_x, vaisseau_y, = vaisseau_deplacement(vaisseau_x, vaisseau_y)
@@ -68,38 +69,26 @@ def update():
     balle_y = balle_y + deplacement_vertical
     balle_x = balle_x + deplacement_horizontal
     
-   
-    
-    #if (balle_x >= 5 | balle_x <= 125) & (balle_y >= 40 | balle_y <= 44):
-       # deplacement_vertical = -deplacement_vertical
-    #if (balle_x >= 5  |  balle_x <= 125) & (balle_y >= 30 | balle_y <= 34):
-       ## deplacement_vertical = -deplacement_vertical
-    #if (balle_x >= 5  |  balle_x <= 125) & (balle_y >= 20 | balle_y <= 24):
-        #deplacement_vertical = -deplacement_vertical
-    if (balle_x >= 5 | balle_x <= 25) & (balle_y >= 40 | balle_y <= 44):
-        deplacement_vertical = -deplacement_vertical
-        number = 1
+       
+    if (balle_y == 44 or balle_y == 40):
         row = 3
-    elif (balle_x >= 30 | balle_x <= 55) & (balle_y >= 40 | balle_y <= 44):
-        deplacement_vertical = -deplacement_vertical
-        number = 2
-        row = 3
-    elif (balle_x >= 55 | balle_x <= 75) & (balle_y >= 40 | balle_y <= 44):
-        deplacement_vertical = -deplacement_vertical
-        number = 3
-        row = 3
-    elif (balle_x >= 80 | balle_x <= 100) & (balle_y >= 40 | balle_y <= 44):
-        deplacement_vertical = -deplacement_vertical
-        number = 4
-        row = 3
-    elif (balle_x >= 105 | balle_x <= 125) & (balle_y >= 40 | balle_y <= 44):
-        deplacement_vertical = -deplacement_vertical
-        number = 5
-        row = 3
+        if ((len(brick_deleted_3)==0 or (1 not in brick_deleted_3)) and balle_x >= 5 and balle_x <= 25):
+            number = 1
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_3)==0 or (2 not in brick_deleted_3)) and balle_x >= 30 and balle_x <= 50):
+            number = 2
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_3)==0 or (3 not in brick_deleted_3)) and balle_x >= 55 and balle_x <= 75):
+            number = 3
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_3)==0 or (4 not in brick_deleted_3)) and balle_x >= 80 and balle_x <= 100):
+            number = 4
+            deplacement_vertical = -deplacement_vertical
+        elif ((len(brick_deleted_3)==0 or (5 not in brick_deleted_3)) and balle_x >= 105 and balle_x <= 125):
+            number = 5
+            deplacement_vertical = -deplacement_vertical
+        brick_deleted_3.append(number)
         
-    
-    
-    
     if balle_x == 128 : 
         deplacement_horizontal = -1
         
@@ -135,7 +124,7 @@ def update():
 # =========================================================
 def draw():
     """création des objets (30 fois par seconde)"""
-    global vaisseau_x, vaisseau_y, balle_x, balle_y,deplacement_vertical,deplacement_horizontal, vies, number, row
+    global vaisseau_x, vaisseau_y, balle_x, balle_y,deplacement_vertical,deplacement_horizontal, vies, number, row, brick_deleted_3
     if vies > 0:
     # vide la fenetre
        pyxel.cls(0)
@@ -161,15 +150,16 @@ def draw():
     pyxel.rect(80, 30, 20, 4, 7) 
     pyxel.rect(105, 30, 20, 4, 7)
     #briques 3
-    if not(row == 3 & number == 1):
+    print(number)
+    if len(brick_deleted_3)==0 or (1 not in brick_deleted_3):
         pyxel.rect(5, 40, 20, 4, 10)
-    if not(row == 3 & number == 2):
+    if len(brick_deleted_3)==0 or (2 not in brick_deleted_3):
         pyxel.rect(30, 40, 20, 4, 10)
-    if not(row == 3 & number == 3):
+    if len(brick_deleted_3)==0 or (3 not in brick_deleted_3):
         pyxel.rect(55, 40, 20, 4, 10)
-    if not(row == 3 & number == 4):
+    if len(brick_deleted_3)==0 or (4 not in brick_deleted_3):
         pyxel.rect(80, 40, 20, 4, 10)
-    if not(row == 3 & number == 5):
+    if len(brick_deleted_3)==0 or (5 not in brick_deleted_3):
         pyxel.rect(105, 40, 20, 4, 10)
     
 
