@@ -14,6 +14,8 @@ balle_x = 63
 balle_y = 106
 deplacement_vertical = 1
 deplacement_horizontal = random.randint(-1,1)
+balle_velocity_x = 1
+balle_velocity_y = -1
 
 
 #briques
@@ -22,6 +24,7 @@ deplacement_horizontal = random.randint(-1,1)
 #vies et score
 score = 0
 vies = 3
+win = True
 
 def vaisseau_deplacement(x, y):
     """déplacement avec les touches de directions"""
@@ -32,7 +35,7 @@ def vaisseau_deplacement(x, y):
         if (x > 10) :
             x = x - 6
 
-    
+ 
     
     return x, y
 
@@ -61,42 +64,22 @@ def update():
     vaisseau_x, vaisseau_y, = vaisseau_deplacement(vaisseau_x, vaisseau_y)
     balle_deplacement_x, balle_deplacement_y = balle_deplacement(balle_x, balle_y)
     
-
     balle_y = balle_y + deplacement_vertical
     balle_x = balle_x + deplacement_horizontal
     
-    if (balle_x >= 5 | balle_x <= 20) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 5 | balle_x <= 20) & (balle_y == 46):
-        deplacement_vertical = -1
-    elif (balle_x >= 15 | balle_x <= 30) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 15|balle_x <= 30) & (balle_y == 46):
-        deplacement_vertical = -1
-    elif (balle_x >= 25| balle_x <= 40) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 25| balle_x <= 40) & (balle_y == 46):
-        deplacement_vertical = -1
-    elif (balle_x >= 45| balle_x <= 60) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 45| balle_x <= 60) & (balle_y == 46):
-        deplacement_vertical = -1
-    elif (balle_x >= 65| balle_x <= 80) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 65| balle_x <= 80) & (balle_y == 46):
-        deplacement_vertical = -1
-    elif (balle_x >= 85| balle_x <= 100) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 85| balle_x <= 100) & (balle_y == 46):
-        deplacement_vertical = -1
-    elif (balle_x >= 105| balle_x <= 120) & (balle_y == 40):
-        deplacement_vertical = 1
-    elif (balle_x >= 105| balle_x <= 120) & (balle_y == 46):
-        deplacement_vertical = -1
-          
    
+    
+    if (balle_x >= 5 | balle_x <= 125) & (balle_y >= 40 | balle_y <= 44):
+        deplacement_vertical = -deplacement_vertical
+    if (balle_x >= 5  |  balle_x <= 125) & (balle_y >= 30 | balle_y <= 34):
+        deplacement_vertical = -deplacement_vertical
+    if (balle_x >= 5  |  balle_x <= 125) & (balle_y >= 20 | balle_y <= 24):
+        deplacement_vertical = -deplacement_vertical
+    
         
-       
+    
+    
+    
     if balle_x == 128 : 
         deplacement_horizontal = -1
         
@@ -146,32 +129,30 @@ def draw():
     pyxel.circ(balle_x, balle_y, 3, 2)
     
     #briques 1
-    pyxel.rect(5, 20, 15, 6, 2) 
-    pyxel.rect(25, 20, 15, 6, 2)   
-    pyxel.rect(45, 20, 15, 6, 2) 
-    pyxel.rect(65, 20, 15, 6, 2) 
-    pyxel.rect(85, 20, 15, 6, 2)
-    pyxel.rect(105, 20, 15, 6, 2)
+    pyxel.rect(5, 20, 20, 4, 2) 
+    pyxel.rect(30, 20, 20, 4, 2)   
+    pyxel.rect(55, 20, 20, 4, 2)  
+    pyxel.rect(80, 20, 20, 4, 2)
+    pyxel.rect(105, 20, 20, 4, 2)
     #briques 2
-    pyxel.rect(5, 30, 15, 6, 7) 
-    pyxel.rect(25, 30, 15, 6, 7)   
-    pyxel.rect(45, 30, 15, 6, 7) 
-    pyxel.rect(65, 30, 15, 6, 7) 
-    pyxel.rect(85, 30, 15, 6, 7)
-    pyxel.rect(105, 30, 15, 6, 7)
-    #briques3
-    pyxel.rect(5, 40, 15, 6, 10) 
-    pyxel.rect(25, 40, 15, 6, 10)   
-    pyxel.rect(45, 40, 15, 6, 10) 
-    pyxel.rect(65, 40, 15, 6, 10) 
-    pyxel.rect(85, 40, 15, 6, 10)
-    pyxel.rect(105, 40, 15, 6, 10)
+    pyxel.rect(5, 30, 20, 4, 7) 
+    pyxel.rect(30, 30, 20, 4, 7)   
+    pyxel.rect(55, 30, 20, 4, 7) 
+    pyxel.rect(80, 30, 20, 4, 7) 
+    pyxel.rect(105, 30, 20, 4, 7)
+    #briques2
+    pyxel.rect(5, 40, 20, 4, 10) 
+    pyxel.rect(30, 40, 20, 4, 10)   
+    pyxel.rect(55, 40, 20, 4, 10) 
+    pyxel.rect(80, 40, 20, 4, 10) 
+    pyxel.rect(105, 40, 20, 4, 10)
     
 
-if vies == 0 :
+if vies == 0:
         pyxel.cls(0)
-        pyxel.text(120,128,"PERDU", 1)
+        pyxel.text(55, 64, "Game Over", 7)
     
+
        
       
       
