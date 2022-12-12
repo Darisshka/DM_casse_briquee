@@ -28,7 +28,7 @@ brick_deleted_1 = []
 #vies et score
 score = 0
 vies = 3
-win = True
+
 
 def vaisseau_deplacement(x, y):
     """déplacement avec les touches de directions"""
@@ -62,7 +62,7 @@ def balle_deplacement(x, y):
 def update():
     """mise à jour des variables (30 fois par seconde)"""
 
-    global vaisseau_x, vaisseau_y, balle_x, balle_y, deplacement_vertical, deplacement_horizontal, number, row, brick_deleted_3
+    global vaisseau_x, vaisseau_y, balle_x, balle_y, deplacement_vertical, deplacement_horizontal,vies, number, row
 
     # mise à jour de la position du vaisseau
     vaisseau_x, vaisseau_y, = vaisseau_deplacement(vaisseau_x, vaisseau_y)
@@ -147,14 +147,14 @@ def update():
     if balle_y == 0 :
         deplacement_vertical = 1
         
-    if balle_y == vaisseau_y and vaisseau_x <= balle_x <=vaisseau_x + 32 :
+    if balle_y == vaisseau_y and vaisseau_x <= balle_x <=vaisseau_x + 25 :
         deplacement_vertical = -1
         
-    if vaisseau_y <= balle_y <= vaisseau_y + 16  and vaisseau_x + 32 <= balle_x <=vaisseau_x + 32 + 16 :
+    if vaisseau_y <= balle_y <= vaisseau_y + 9  and vaisseau_x + 25 <= balle_x <=vaisseau_x + 25 + 7 :
         deplacement_vertical = -1
         deplacement_horizontal = random.randint(-1,1)
         
-    if vaisseau_y <= balle_y <= vaisseau_y + 16 and vaisseau_x - 14 <= balle_x <= vaisseau_x :
+    if vaisseau_y <= balle_y <= vaisseau_y + 9 and vaisseau_x - 7 <= balle_x <= vaisseau_x :
         deplacement_vertical = -1
         deplacement_horizontal = random.randint(-1,1)
         
@@ -164,7 +164,7 @@ def update():
 # =========================================================
 def draw():
     """création des objets (30 fois par seconde)"""
-    global vaisseau_x, vaisseau_y, balle_x, balle_y,deplacement_vertical,deplacement_horizontal, vies, number, row, brick_deleted_3
+    global vaisseau_x, vaisseau_y, balle_x, balle_y,deplacement_vertical,deplacement_horizontal, vies, number, row
     if vies > 0:
     # vide la fenetre
        pyxel.cls(0)
@@ -213,9 +213,9 @@ def draw():
         pyxel.rect(105, 40, 20, 4, 10)
     
 
-if vies == 0:
+    if vies == 0:
         pyxel.cls(0)
-        pyxel.text(55, 64, "Game Over", 7)
+        pyxel.text(50, 64, "Game Over", 7)
       
 
 pyxel.run(update, draw)
